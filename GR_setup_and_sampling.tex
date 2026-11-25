@@ -1,0 +1,200 @@
+\documentclass[aps,prd,reprint,amsmath,amssymb,nofootinbib]{revtex4-2}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[hidelinks,pdfencoding=auto]{hyperref}
+\hypersetup{pdftitle={Relativistic transport of a dark matter spike during a single inspiral},pdfauthor={Gianfranco Bertone}}
+\newcommand{\E}{\mathcal E}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\lc}{\mathrm{lc}}
+\newcommand{\circsub}{\mathrm{circ}}
+\newcommand{\DM}{\mathrm D}
+\begin{document}
+\title{Relativistic transport of a dark matter spike during a single inspiral}
+\author{Gf's notes for Rodrigo}\noaffiliation
+\date{November 25, 2026}
+\begin{abstract}
+We describe how to evolve a collisionless dark matter distribution through one extreme mass-ratio inspiral in Schwarzschild spacetime. The companion follows a prescribed adiabatic vacuum trajectory. For each dark matter orbit, the radial overlap with the companion and the local invariant flux determine an encounter rate. Each encounter changes the particle's Killing energy and angular momentum through an elastic deflection in the companion frame. Its subsequent Schwarzschild radial motion determines whether it remains bound, escapes, or enters the primary black hole. We specify the sampling measure, both impact-parameter cutoffs, the transport of surviving particles, and the projection onto the density measured by a static observer. The approximations requiring dynamical tests are the local deflection law, the range of impact parameters, and the loss of phase correlations between encounters.
+\end{abstract}
+\maketitle
+
+\section{Orbits and the inspiral clock}
+We ask how a single $10\,M_\odot$ companion redistributes dark matter around a Schwarzschild primary of mass $M_\bullet=4.30\times10^6\,M_\odot$. The companion supplies a time-dependent perturbation to the spike. We prescribe its inspiral, neglect the backreaction from dark matter, and omit stellar scattering and the self-gravity of the spike. These assumptions make the transport linear in its initial distribution function $f_0$.
+
+Set $G=c=M_\bullet=1$ and $q=m/M_\bullet$. Radii and times are in units of $r_g=GM_\bullet/c^2$ and $t_g=GM_\bullet/c^3$. The areal radius is $r$, $\alpha=(1-2/r)^{1/2}$, and $t$ is Schwarzschild time. For either body the specific energy $\E=-u_t$ includes the rest energy, and $L$ is the magnitude of the specific angular momentum. The radial equation is
+\begin{equation}
+ (u^r)^2=\mathcal R(r)=\E^2-V_L(r),\quad
+ V_L(r)=\alpha^2(1+L^2/r^2).
+ \label{radial}
+\end{equation}
+An exterior bound orbit admits the parametrization $r=p/(1+e\cos\chi)$, $a=p/(1-e^2)$, and $p>6+2e$. Its integrals are
+\begin{equation}
+ \E^2=\frac{(p-2)^2-4e^2}{p(p-3-e^2)},\qquad
+ L^2=\frac{p^2}{p-3-e^2}.
+ \label{elements}
+\end{equation}
+We evolve the companion through a sequence of these geodesics. Denote the signed orbit-averaged vacuum rates per unit $q$ by $\mathcal F_E,\mathcal F_L$. We use the FEW 1.4.10 flux expansion through 5PN and $e^{10}$ in its equatorial Schwarzschild limit~\cite{Fujita,Katz}, and solve
+\begin{equation}
+ \frac{\partial(\E,L)}{\partial(p,e)}
+ \begin{pmatrix}\dot p\\ \dot e\end{pmatrix}
+ =q\begin{pmatrix}\mathcal F_E\\ \mathcal F_L\end{pmatrix}.
+ \label{clock}
+\end{equation}
+The eccentric trajectory passes through $(p,e)=(6.45,0.2)$. Integrating in $p-6-2e$ gives the clock from $a=720$ to the separatrix. The endpoint is the adiabatic plunge convention. An exactly circular track stays circular and satisfies $\dot r=q\mathcal F_E/(\dd\E_{\circsub}/\dd r)$, with $\E_{\circsub}=(1-2/r)/\sqrt{1-3/r}$. To specify a single observing radius for the eccentric system we take $r_*=a$ four source-frame years before the separatrix, giving $r_*=8.219\,r_g$. The eccentric companion passes through a range of radii at that epoch. The flux expansion and the adiabatic endpoint are separate approximations to the inspiral clock.
+
+\section{Which pairs encounter one another?}
+Let $i=\DM,s$ refer to dark matter and the companion. The conditional distribution in radius is determined by the time spent there. Write $T_i=2\int_0^\pi H_i(\chi)\,\dd\chi$ for the coordinate-time radial period, with
+\begin{align}
+ H_i(\chi)=\frac{\dd t_i}{\dd\chi}
+ &=\frac{p_i^2\sqrt{(p_i-2)^2-4e_i^2}}
+ {(p_i-2-2e_i\cos\chi)(1+e_i\cos\chi)^2}
+ \nonumber\\[-1pt]
+ &\hspace{1.7em}\times (p_i-6-2e_i\cos\chi)^{-1/2},\nonumber\\
+ P_i(r)&=\frac{2H_i}{T_i|\dd r_i/\dd\chi|}.
+ \label{dwell}
+\end{align}
+$P_i$ vanishes outside the exterior radial interval and integrates to unity. We assume independent phases, uniformly distributed apsidal directions, and an isotropic ensemble of orbital planes relative to the companion. We re-average those orientations after each change of orbit. Coherent returns and persistent anisotropy with respect to the binary plane would require additional phase-space variables.
+
+At a common radius a static observer measures $u_i^{\hat0}=\gamma_i=\E_i/\alpha$, $u_{\perp i}=L_i/r$, and $u_i^{\hat r}=\pm\sqrt{\gamma_i^2-1-u_{\perp i}^2}$. Draw the radial signs independently with equal probability and the relative tangential angle uniformly on $[0,2\pi)$. The invariant relative Lorentz factor is $\gamma_{\rm rel}=-u_\DM\cdot u_s$. For a reference transverse area $\sigma=\pi b_{\max}^2$ in the companion frame, the pair rate per coordinate time is
+\begin{align}
+ \Gamma_{\rm disk}&=\int P_\DM P_s\,\langle K\rangle\,\dd r,\nonumber\\
+ K&=\frac{\alpha^2\sigma}{4\pi r^2}
+       \frac{\sqrt{\gamma_{\rm rel}^2-1}}{\gamma_\DM\gamma_s}.
+ \label{rate}
+\end{align}
+To recover the two powers of lapse, use the local single-particle density $\alpha P_i/(4\pi r^2)$, proper volume $4\pi r^2\dd r/\alpha$, and static proper time $\alpha\dd t$. The last factor in $K$ is the invariant two-particle flux divided by the two local energies per unit mass. The lower impact cutoff is imposed inside the directional average below.
+
+For an eccentric companion hold its orbit fixed at the midpoint in $\ln a$ of a slab of duration $\Delta t$. For each proposal, choose either orbit with equal probability, draw $\chi$ uniformly on $[0,\pi]$, and compute $r$. Define $g_i=1/(\pi|\dd r_i/\dd\chi|)$ on the support of that orbit and $g=(g_\DM+g_s)/2$. The integrated weight for a geometry drawn within the overlap is
+\begin{equation}
+ h=\frac{\Delta t}{n}\frac{P_\DM P_s}{g}\,K .
+ \label{proposal}
+\end{equation}
+Here $n$ counts all proposals, including those giving zero outside the overlap. In the refined eccentric calculation we use 152 time slabs and two independent batches of 320 proposals per overlapping cell and slab. Each batch estimates the same integrated operator. We average their rates and moments before evolving the mass.
+
+An exactly circular companion has $P_s(r)=\delta(r-R)$. Sample the swept interval in $R$ to include the time during which it crosses a dark matter turning point. Intersect that interval with the dark matter radial range and sample $\chi_\DM$ uniformly over the overlap of width $\Delta\chi$. Changing variables to $R=r_\DM(\chi)$ gives
+\begin{equation}
+ h=\frac{\Delta\chi}{n}\frac{2H_\DM}{T_\DM}
+        \left|\frac{\dd t_s}{\dd R}\right| K .
+ \label{circle}
+\end{equation}
+The factor $\dd t_s/\dd R$ already supplies the time weight.
+
+\section{A signed kick and its impact parameter}
+Boost the incident four-velocity to the local rest frame of the companion. Its energy per unit mass there is $\gamma_{\rm rel}$ and its speed is $w=\sqrt{1-\gamma_{\rm rel}^{-2}}$. We model the interaction as a local elastic two-body deflection through an angle $\Theta$,
+\begin{align}
+ \tan(\Theta/2)&=b_{90}/b, & b_{90}&=q(1+w^2)/w^2,\nonumber\\
+ b_{\min}&=\eta b_{90}, & b_{\max}&=\kappa r(q/3)^{1/3}.
+ \label{cuts}
+\end{align}
+The transport uses $\eta=0.02$ and $\kappa=1$. The outer scale is the local Hill estimate, where the primary's tidal acceleration becomes comparable to the companion's attraction. Applying it instantaneously on an eccentric orbit is a modeling choice. The inner scale truncates the elastic law. Encounters below it have zero weight. The transport contains no sink for accretion by the companion. Its strong-deflection law extrapolates a weak-field relativistic expression and neglects the tide of the primary during the encounter. An exact isolated-secondary scattering and capture calculation, such as that used for the force in Ref.~\cite{Vicente}, tests a different part of this model.
+
+At each accepted geometry draw two independent pairs $(\ln b,\psi)$ uniformly over the log impact interval and over azimuth. For each pair also evaluate $\psi+\pi$ at the same $b$. The four signed kicks have individual weights
+\begin{equation}
+ h_b=\frac h4\frac{2b^2}{b_{\max}^2}
+             \ln\frac{b_{\max}}{b_{\min}} .
+ \label{weight}
+\end{equation}
+A geometry with $b_{\min}\ge b_{\max}$ contributes zero. Equation~(\ref{weight}) restores the measure $2\pi b\,\dd b$. The expected sum of weights is $h[1-(b_{\min}/b_{\max})^2]$. The four kicks share a geometry. Sampling errors must therefore be estimated from independent geometries or batches.
+
+For incoming unit direction $\hat{\boldsymbol w}$ and a transverse impact direction $\hat{\boldsymbol b}(\psi)$, the outgoing direction is $\cos\Theta\,\hat{\boldsymbol w}-\sin\Theta\,\hat{\boldsymbol b}$. Keep the companion-frame energy and momentum magnitude fixed. Boost the outgoing four-velocity back into the primary's static tetrad and form
+\begin{equation}
+ \E'=\alpha u'^{\hat0},\qquad L'=r|\boldsymbol u'_{\perp}|,\qquad
+ u'^r=\alpha u'^{\hat r}.
+ \label{kick}
+\end{equation}
+The antipodal azimuth reverses the transverse deflection while preserving the longitudinal change proportional to $\cos\Theta-1$. Negating an already computed pair $(\Delta\E,\Delta L)$ would erase this drift.
+
+\subsection{What varying the cutoffs changes}
+At fixed geometry the accepted encounter area is $\pi(b_{\max}^2-b_{\min}^2)$. For elastic momentum transfer along the incident direction the relevant cross section instead weights the area by $1-\cos\Theta$. Equation~(\ref{cuts}) gives exactly
+\begin{align}
+ \sigma_{\rm tr}&=\int_{b_{\min}}^{b_{\max}}2\pi b(1-\cos\Theta)\,\dd b
+ \nonumber\\
+ &=2\pi b_{90}^2
+ \ln\!\frac{b_{\max}^2+b_{90}^2}{b_{\min}^2+b_{90}^2}.
+ \label{log}
+\end{align}
+When $b_{\max}\gg b_{90}\gg b_{\min}$ the outer scale enters this moment logarithmically and reducing $b_{\min}$ further changes it quadratically in $b_{\min}/b_{90}$. The weak angular diffusion also receives contributions over many logarithmic intervals in $b$, since $\Theta\propto b^{-1}$ at large $b$. Primary capture depends on which kicks cross the orbital barrier. Its dependence on the cutoffs need not follow Eq.~(\ref{log}). A controlled sensitivity test varies $\kappa$ and $\eta$ independently at fixed trajectory, sampling prescription and grid, rebuilds the operator, and compares both capture flux and $\rho(r_*,t)$. This dependence of the evolved density has yet to be established on the refined mesh.
+
+\section{Implementation of the primary loss cone}
+A point on the loss-cone boundary has a double root of Eq.~(\ref{radial}) at an unstable circular orbit. The equations $\mathcal R=\partial_r\mathcal R=0$ give~\cite{SFW}
+\begin{equation}
+ \E=\frac{r_u-2}{\sqrt{r_u(r_u-3)}},\qquad
+ L_{\lc}(\E)=\frac{r_u}{\sqrt{r_u-3}} .
+ \label{losscurve}
+\end{equation}
+For $\sqrt{8/9}<\E<1$ the unstable branch has $4<r_u<6$. The stable solution at the same energy has $r>6$ and sets the maximum $L_{\circsub}(\E)$ of the exterior bound family. At marginal binding $r_u=4$ and $L_{\lc}=4$. The two circular branches meet at the ISCO.
+
+For a discrete kick we determine the future orbit from $(r,\E',L',u'^r)$ before assigning it to a grid cell. When $L'^2>12$ the potential maximum is at
+\begin{equation}
+ r_u(L')=\frac{6}{1+\sqrt{1-12/L'^2}} .
+\end{equation}
+A barrier separates the allowed radial intervals if $L'^2>12$ and $\E'^2<V_{L'}(r_u)$. For a physical kick below this barrier, $r<r_u$ selects the inner, horizon-connected interval. Such a particle plunges even if it initially moves outward. On the exterior interval it remains bound for $\E'<1$ and escapes for $\E'\ge1$, possibly after an inward passage to periapsis. If there is no separating barrier, a particle with $\E'<1$ plunges after at most one outer turning point. With $\E'\ge1$, the sign of $u'^r$ determines capture (inward) or escape (outward). The implementation groups barrier equality with the above-barrier case. It also explicitly excludes exterior bound states with $\E'<\sqrt{8/9}$.
+
+This branch test matters because two locally allowed trajectories at different radii can have identical $(\E',L')$ and opposite ultimate fates. Excess angular momentum at the stable-circular grid edge is never a primary capture criterion. There is also a second contribution to the loss-cone current from particles surviving their first kick and subsequently diffusing to small $L$.
+
+\section{Transport and local density}
+\subsection{Initial orbital measure}
+Starting with an isotropic $r^{-1}$ seed cusp, conserve $L$ and the specific radial action as the primary grows adiabatically~\cite{SFW}. In the final Schwarzschild metric,
+\begin{equation}
+ J_r(\E,L)=\frac1\pi\int_{r_p}^{r_a}
+         \frac{\sqrt{\mathcal R(r)}}{\alpha^2}\,\dd r,\qquad
+ T_r=2\pi\left(\frac{\partial J_r}{\partial\E}\right)_L .
+\end{equation}
+Match this to the seed action at the same $L$. For the linear central seed potential, $\Phi-\Phi(0)=kr$, this determines $\epsilon_{\rm seed}=v^2/2+kr$ and $f_0\propto\epsilon_{\rm seed}^{-5/2}$. Populate only exterior bound orbits, with an initially empty primary loss cone. The initial mass in a cell $i$ is
+\begin{equation}
+ m_i^0=8\pi^2 r_g^3\int_i f_0(\E,L)\,L T_r\,\dd\E\,\dd L .
+ \label{mass}
+\end{equation}
+An overall normalization sets the physical density and cancels from the normalized observables for a prescribed track.
+
+\subsection{Resolved jumps and diffusion}
+Use $X=\ln(1-\E)$ and $Y=(L-L_{\lc})/(L_{\circsub}-L_{\lc})$. Thus $Y=0$ is the loss cone and $Y=1$ the stable circular orbit at the same energy. The energy grid covers $10^{-5}\le 1-\E\le1-\sqrt{8/9}$. One representative orbit at each cell center supplies the transition rates. Equation~(\ref{mass}) and the local projection below integrate over cell faces. On the refined energy grid, the interior faces lie midway between neighboring deposition centers in $X$. Consistent faces matter because the plotted $f/f_0$ is inferred from a ratio of cell masses.
+
+First assign the primary captures and escapes identified above to separate absorbing states. For an exterior survivor compute its displacement in the grid variables. A step smaller than 0.65 of the local spacing in both coordinates supplies the integrated signed drift $B_a$ and raw second moment $C_{ab}$,
+\begin{equation}
+ B_a=\sum h_b\Delta z_a,\qquad
+ C_{ab}=\sum h_b\Delta z_a\Delta z_b .
+ \label{mom}
+\end{equation}
+Here $z=(X,Y)$ on a uniform angular grid. For a grid concentrated near the loss cone, $z_2$ is the chosen monotone mesh coordinate $U(Y)$, and the second component of each displacement is $U(Y')-U(Y)$. For the angular-refinement test the mesh is uniform in
+\begin{equation}
+ U(Y)=0.4Y+0.6\frac{\ln(1+Y/0.003)}{\ln(1+1/0.003)} .
+\end{equation}
+Inverting $U$ gives the physical cell faces used in both mass and density integrals. The threshold in $X$ uses the center spacing on the side of the jump. Larger surviving jumps are deposited linearly between bracketing centers in each coordinate.
+
+A positive stencil of axial and diagonal jumps represents the weak moments. Its rates reproduce the interior signed drift and approximate the second moments subject to positivity. In Fokker--Planck notation the diffusion coefficient multiplying the second derivative is $C_{ab}/(2\Delta t)$. Insufficient angular resolution can broaden the distribution and shift the flux across the loss cone. A weak jump past the lower angular boundary is absorbed by the primary. The upper angular and maximum-binding index overshoots are clamped. The weak-binding edge has a separate overflow state for bound mass leaving the modeled energy range. Only a kinematically classified unbound orbit contributes to physical escape.
+
+Let $A_{ji}$ be the time-integrated jump rate from $i$ to $j$ during a slab, with diagonal $A_{ii}=-\sum_{j\ne i}A_{ji}$. Including all three sinks, each column sums to zero. Propagate in chronological order,
+\begin{equation}
+ \boldsymbol m(t_{k+1})=\exp(A^{(k)})\,\boldsymbol m(t_k).
+ \label{prop}
+\end{equation}
+This lets a surviving particle scatter again during the same slab. The exponential solves the held-generator problem. The accuracy of holding the companion orbit fixed must be assessed by refining the inspiral slabs separately.
+
+\subsection{What an observer at a fixed radius measures}
+The transport evolves the entire modeled bound family. A phase-space plot can display every orbit with $r_p\le720$ to show redistribution through the inspiral, or retain only orbits with $r_p\le r_*\le r_a$ to identify those supplying one shell. Both selections display the same $f/f_0$. From Eq.~(\ref{radial}) the boundary of the shell selection is
+\begin{equation}
+ L_{\rm turn}(\E;r_*)=r_*\sqrt{\E^2/\alpha_*^2-1}.
+\end{equation}
+At $r_*>6$, this curve touches $L_{\circsub}(\E)$ at the energy of the circular orbit at $r_*$. Its two branches correspond to a turning point at apoapsis and periapsis, respectively below and above that energy. An eccentric companion can enter the selected domain when its periapsis reaches the shell and leave when its apoapsis passes inside.
+
+In a static orthonormal frame let $u=\sqrt{\E^2/\alpha^2-1}$ and $\mu=u^{\hat r}/u$. The local momentum measure, integrated over azimuth and both radial signs, is $\dd^3\hat u=4\pi u\E\,\dd\E\,\dd|\mu|/\alpha^2$. At $r_*$, integrate $f_0$ in this measure over the exterior orbits in each cell to obtain $W_i$. With the initial within-cell shape held fixed, the relative density is
+\begin{equation}
+ \frac{\rho(r_*,t)}{\rho(r_*,0)}=
+ \frac{\sum_iW_i\,m_i(t)/m_i^0}{\sum_iW_i}.
+ \label{density}
+\end{equation}
+Equation~(\ref{density}) evolves the entire spike, including orbits that can scatter into the shell. To ask what happens to the particles initially observed there, propagate a second column initialized with $W_i/\sum W_i$ and read the capture and escape sinks. These two experiments have different initial conditions. In particular, a deficit in one region of $(\E,L)$ need not imply the same fractional decrease in the shell density.
+
+\appendix
+\section{Independent checks of the prescription}
+The eccentric pair rate in Eq.~(\ref{rate}) can be integrated without Monte Carlo. Write $r=r_{\rm lo}+(r_{\rm hi}-r_{\rm lo})\sin^2\theta$ over the overlap to remove the endpoint singularities. Sum over radial signs and integrate the relative angle. Use Eq.~(\ref{weight}) to compare the accepted annulus. Imposing $b_{\min}=b_{\max}/2$ gives exactly three quarters of the full-disk rate. This checks the impact measure independently of the deflection law.
+
+Each kick must preserve $u_\DM\cdot u_\DM=-1$ and $-u_\DM\cdot u_s$. A circular companion satisfies $u_s\propto\partial_t+\Omega\partial_\phi$, $\Omega=r^{-3/2}$, so elasticity implies $\Delta\E=\Omega\Delta L_z$ for each kick. Here $L_z$ is signed along the companion's orbital axis, whereas the loss-cone test uses total $L$. Independently solve the positive exterior roots of $r^3\mathcal R(r)=0$ and follow the radial interval containing the kick to check the branch classifier. Verify positivity and column conservation in Eq.~(\ref{prop}), and recover unity from Eq.~(\ref{density}) initially. These checks isolate errors in sampling, kinematics and transport. Testing the local encounter model itself requires matched three-body trajectories, particularly for strong deflections and repeated passages.
+
+\begin{thebibliography}{9}
+\bibitem{Fujita} R. Fujita and M. Shibata, \href{https://doi.org/10.1103/PhysRevD.102.064005}{Phys. Rev. D \textbf{102}, 064005 (2020)}.
+\bibitem{Katz} M. L. Katz, A. J. K. Chua, L. Speri, N. Warburton, and S. A. Hughes, \href{https://arxiv.org/abs/2104.04582}{Phys. Rev. D \textbf{104}, 064047 (2021)}.
+\bibitem{Vicente} R. Vicente, T. K. Karydas, and G. Bertone, \href{https://arxiv.org/abs/2505.09715}{Phys. Rev. Lett. \textbf{135}, 211401 (2025)}.
+\bibitem{SFW} L. Sadeghian, F. Ferrer, and C. M. Will, \href{https://doi.org/10.1103/PhysRevD.88.063522}{Phys. Rev. D \textbf{88}, 063522 (2013)}.
+\end{thebibliography}
+\end{document}
